@@ -17,6 +17,7 @@ public enum Categoria {
 
 	//Atributo
 	private final int codCategoria;
+	private static final int size = Categoria.values().length;
 
 	//Constructor
 	private Categoria(int codCategoria) {
@@ -27,5 +28,33 @@ public enum Categoria {
 	public int getCodCategoria() {
 		return codCategoria;
 	}
+	
+	public static int getSize() {
+        return size;
+    }
+	
+	//Metodo para elegir la categoria de una Pelicula
+    private static Categoria[] values = null;
+
+    public static Categoria dimeCategoria(int val) {
+        if (Categoria.values == null) {
+            Categoria.values = Categoria.values();
+        }
+        
+        return Categoria.values[val];
+    }
+	
+	public static void Informe2() {
+        StringBuilder sb;
+        for (Categoria cat : Categoria.values()) {
+            sb = new StringBuilder();
+            sb.append("(").
+                    append(cat.codCategoria).
+                    append(")").
+                    append(cat).
+                    append("|");
+            System.out.println(sb);
+        }
+    }
 
 }

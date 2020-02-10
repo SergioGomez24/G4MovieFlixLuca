@@ -14,7 +14,7 @@ package gui;
 
 public class Menu {
 	
-	public void mostrarMenu() {
+	public static void mostrarMenu() {
 		
 		System.out.println("------ MENU ------");
 		System.out.println("Introduce alguna de estas opciones");

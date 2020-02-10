@@ -12,13 +12,14 @@
 
 package modelo;
 
+import utilidades.LeerTeclado;
+
 public class Pelicula {
 	
 	//Atributos
-	private int cod_pelicula;
 	private String nombre_pelicula;
 	private int anio_pelicula;
-	private Categoria categoria;
+	private Categoria categoria_pelicula;
 	
 	//Contructor superclase
 	public Pelicula() {
@@ -26,23 +27,14 @@ public class Pelicula {
 	}
 	
 	//Constructor con atributos
-	public Pelicula(int cod_pelicula, String nombre_pelicula, int anio_pelicula, Categoria categoria) {
+	public Pelicula(String nombre_pelicula, int anio_pelicula, Categoria categoria_pelicula) {
 		super();
-		this.cod_pelicula = cod_pelicula;
 		this.nombre_pelicula = nombre_pelicula;
 		this.anio_pelicula = anio_pelicula;
-		this.categoria = categoria;
+		this.categoria_pelicula = categoria_pelicula;
 	}
 	
 	//Metodos setters y getters
-	public int getCod_pelicula() {
-		return cod_pelicula;
-	}
-
-	public void setCod_pelicula(int cod_pelicula) {
-		this.cod_pelicula = cod_pelicula;
-	}
-
 	public String getNombre_pelicula() {
 		return nombre_pelicula;
 	}
@@ -59,19 +51,32 @@ public class Pelicula {
 		this.anio_pelicula = anio_pelicula;
 	}
 
-	public Categoria getCategoria() {
-		return categoria;
+	public Categoria getCategoriaPelicula() {
+		return categoria_pelicula;
 	}
 
-	public void setCategoria(Categoria categoria) {
-		this.categoria = categoria;
+	public void setCategoria(Categoria categoria_pelicula) {
+		this.categoria_pelicula = categoria_pelicula;
+	}
+	
+	public void crearPelicula() {
+		
+		try {
+			this.nombre_pelicula = LeerTeclado.leerPalabra("Introduce el nombre de la pelicula");
+			this.anio_pelicula = LeerTeclado.leerInt("Introduce el año de la pelicula");
+			Categoria.Informe2();
+			this.categoria_pelicula = Categoria.dimeCategoria(LeerTeclado.leerInt());
+		} catch (Exception e) {
+            e.getStackTrace();
+		}
+		
 	}
 	
 	//Metodo tostring
 	@Override
 	public String toString() {
-		return "Pelicula [cod_pelicula=" + cod_pelicula + ", nombre_pelicula=" + nombre_pelicula + ", anio_pelicula="
-				+ anio_pelicula + ", categoria=" + categoria + "]";
+		return "Pelicula [nombre_pelicula=" + nombre_pelicula + ", anio_pelicula="
+				+ anio_pelicula + ", categoria=" + categoria_pelicula + "]";
 	}
 
 }

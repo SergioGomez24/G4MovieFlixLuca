@@ -13,9 +13,9 @@ public class Pelicula_DAO extends DAO {
 	public boolean altaPelicula(Pelicula p) throws SQLException {
 		String sql = rb.getString("insertar.pelicula");
 		pta = conexion.prepareStatement(sql);
-		pta.setString(2, p.getNombre_pelicula());
-		pta.setInt(3, p.getAnio_pelicula());
-		pta.setString(4, p.getCategoria().toString());
+		pta.setString(1, p.getNombre_pelicula());
+		pta.setInt(2, p.getAnio_pelicula());
+		pta.setString(3, p.getCategoriaPelicula().toString());
 		int num = pta.executeUpdate();
 		if (num == 1)
 			return true;
