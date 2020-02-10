@@ -1,5 +1,15 @@
 package conexion;
-
+/**
+ * Implementación Conexión
+ * 
+ * Implementación de la interfaz conexión con la información para la conexión con la BBDD
+ * 
+ * Fecha: 10/02/2020
+ * 
+ * @author Leonardo Flórez Matute
+ * @version 1.0
+ *
+ */
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -27,10 +37,10 @@ public class Conexion implements IConexion {
 		String url = rb.getString("conexion.url");
 		String usuario = rb.getString("conexion.user");
 		String clave = rb.getString("conexion.con");
-		String diver = rb.getString("conexion.driver");
+		String driver = rb.getString("conexion.driver");
 		boolean valido = true;
 		try {
-			Class.forName(diver);
+			Class.forName(driver);
 		}catch (Exception e) {
 			valido = false;
 		}
@@ -38,7 +48,6 @@ public class Conexion implements IConexion {
 			try {
 				conexion = DriverManager.getConnection(url, usuario, clave);
 			} catch (SQLException e) {
-				
 			}
 		}
 	}
