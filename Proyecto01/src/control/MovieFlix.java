@@ -1,9 +1,13 @@
 package control;
 
 import gui.Menu;
+import servicios.Gestion_Peliculas;
+import servicios.IGestion_Peliculas;
 import utilidades.LeerTeclado;
 
 public class MovieFlix {
+	
+	private IGestion_Peliculas servicioPeliculas = new Gestion_Peliculas();
 	
 	public void abrirMovieFlix() {
 		boolean seguir = true;
@@ -21,7 +25,7 @@ public class MovieFlix {
 		try {
 			switch(LeerTeclado.leerInt()) {
 				case 1:
-					//services.altaPelicula();
+					servicioPeliculas.altaPelicula();
 					break;
 					
 				case 0:
