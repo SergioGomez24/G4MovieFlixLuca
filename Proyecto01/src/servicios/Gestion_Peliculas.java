@@ -25,6 +25,12 @@ public class Gestion_Peliculas implements IGestion_Peliculas {
 	public Gestion_Peliculas() {
 		peliDao = new Pelicula_DAO();
 	}
+	
+	public void altaPelicula() {
+		Pelicula p = new Pelicula();
+		p.crearPelicula();
+		this.altaPelicula(p);
+	}
 
 
 	/* (non-Javadoc)
