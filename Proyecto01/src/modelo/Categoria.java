@@ -1,3 +1,14 @@
+/**
+ *Enumeracion Categoria
+ * 
+ * Contiene la enumeración de las distintas categorías con su código.
+ * 
+ * Fecha: 10/02/2020
+ * 
+ * @author David Heras Montegrifo
+ * @version 1.0
+ *
+ */
 package modelo;
 
 public enum Categoria {
