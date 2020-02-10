@@ -19,8 +19,13 @@ import dao.Pelicula_DAO;
 import modelo.Pelicula;
 
 public class Gestion_Peliculas implements IGestion_Peliculas {
-
-	private IPelicula_DAO peliDao = new Pelicula_DAO();
+	private IPelicula_DAO peliDao;
+	
+	public Gestion_Peliculas() {
+		peliDao = new Pelicula_DAO();
+	}
+	
+	
 	
 	public void altaPelicula() {
 		Pelicula p = new Pelicula();
