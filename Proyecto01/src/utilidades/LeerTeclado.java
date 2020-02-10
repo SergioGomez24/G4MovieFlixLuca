@@ -14,7 +14,7 @@ package utilidades;
 
 import java.util.Scanner;
 
-public class leerTeclado {
+public class LeerTeclado {
 	
 	public static String leerLinea() {
 		return new Scanner(System.in).nextLine();
