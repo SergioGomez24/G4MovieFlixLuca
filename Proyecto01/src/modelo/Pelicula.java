@@ -14,15 +14,18 @@ package modelo;
 
 public class Pelicula {
 	
+	//Atributos
 	private int cod_pelicula;
 	private String nombre_pelicula;
 	private int anio_pelicula;
 	private Categoria categoria;
 	
+	//Contructor superclase
 	public Pelicula() {
 		super();
 	}
-
+	
+	//Constructor con atributos
 	public Pelicula(int cod_pelicula, String nombre_pelicula, int anio_pelicula, Categoria categoria) {
 		super();
 		this.cod_pelicula = cod_pelicula;
@@ -30,7 +33,8 @@ public class Pelicula {
 		this.anio_pelicula = anio_pelicula;
 		this.categoria = categoria;
 	}
-
+	
+	//Metodos setters y getters
 	public int getCod_pelicula() {
 		return cod_pelicula;
 	}
@@ -62,7 +66,8 @@ public class Pelicula {
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
 	}
-
+	
+	//Metodo tostring
 	@Override
 	public String toString() {
 		return "Pelicula [cod_pelicula=" + cod_pelicula + ", nombre_pelicula=" + nombre_pelicula + ", anio_pelicula="
