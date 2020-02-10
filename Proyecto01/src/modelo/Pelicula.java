@@ -59,20 +59,18 @@ public class Pelicula {
 		this.categoria_pelicula = categoria_pelicula;
 	}
 	
-	public Pelicula crearPelicula() {
-		Pelicula p = null;
+	public void crearPelicula() {
+		
 		try {
-			p = new Pelicula();
-			p.setNombre_pelicula(LeerTeclado.leerPalabra("Introduce el nombre de la pelicula"));
-			p.setAnio_pelicula(LeerTeclado.leerInt("Introduce el año de la pelicula")); 
+			this.nombre_pelicula = LeerTeclado.leerPalabra("Introduce el nombre de la pelicula");
+			this.anio_pelicula = LeerTeclado.leerInt("Introduce el año de la pelicula");
 			System.out.println("Introduce el codigo de la categoria");
 			Categoria.mostrarCategorias();
-			p.setCategoria_pelicula(Categoria.dimeCategoria(LeerTeclado.leerInt()));
-			
+			this.categoria_pelicula = Categoria.dimeCategoria(LeerTeclado.leerInt());
 		} catch (Exception e) {
             e.getStackTrace();
 		}
-		return p;
+		
 	}
 	
 	//Metodo tostring
