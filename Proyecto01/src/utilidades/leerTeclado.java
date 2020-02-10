@@ -1,3 +1,15 @@
+/**
+ * Leer por teclado
+ * 
+ * Deja establecida la entrada de datos por teclado.
+ * 
+ * Fecha: 10/02/2020
+ * 
+ * @author Alejandro Martín Martín
+ * @version 1.0
+ *
+ */
+
 package utilidades;
 
 import java.util.Scanner;
