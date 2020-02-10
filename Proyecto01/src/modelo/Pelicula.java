@@ -51,11 +51,11 @@ public class Pelicula {
 		this.anio_pelicula = anio_pelicula;
 	}
 
-	public Categoria getCategoriaPelicula() {
+	public Categoria getCategoria_pelicula() {
 		return categoria_pelicula;
 	}
 
-	public void setCategoria(Categoria categoria_pelicula) {
+	public void setCategoria_pelicula(Categoria categoria_pelicula) {
 		this.categoria_pelicula = categoria_pelicula;
 	}
 	
@@ -64,6 +64,7 @@ public class Pelicula {
 		try {
 			this.nombre_pelicula = LeerTeclado.leerPalabra("Introduce el nombre de la pelicula");
 			this.anio_pelicula = LeerTeclado.leerInt("Introduce el año de la pelicula");
+			System.out.println("Introduce el codigo de la categoria");
 			Categoria.Informe2();
 			this.categoria_pelicula = Categoria.dimeCategoria(LeerTeclado.leerInt());
 		} catch (Exception e) {

@@ -14,17 +14,13 @@ package servicios;
 
 import java.sql.SQLException;
 
+import dao.IPelicula_DAO;
 import dao.Pelicula_DAO;
 import modelo.Pelicula;
 
 public class Gestion_Peliculas implements IGestion_Peliculas {
 
-	private Pelicula_DAO peliDao;
-	
-	
-	public Gestion_Peliculas() {
-		peliDao = new Pelicula_DAO();
-	}
+	private IPelicula_DAO peliDao = new Pelicula_DAO();
 	
 	public void altaPelicula() {
 		Pelicula p = new Pelicula();
@@ -41,11 +37,13 @@ public class Gestion_Peliculas implements IGestion_Peliculas {
 		try {
 			peliDao.altaPelicula(peli);
 		}catch(SQLException e) {
+			System.out.println("Error 1");
 			//TODO añadir logger
 		}finally {
 			try {
 				peliDao.liberarRecursos();
 			}catch(SQLException e) {
+				System.out.println("Error 2");
 				//TODO
 			}
 		}

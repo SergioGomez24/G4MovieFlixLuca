@@ -4,7 +4,7 @@ import java.sql.SQLException;
 
 import modelo.Pelicula;
 
-public class Pelicula_DAO extends DAO {
+public class Pelicula_DAO extends DAO implements IPelicula_DAO {
 
 	public Pelicula_DAO() {
 		super();
@@ -15,11 +15,13 @@ public class Pelicula_DAO extends DAO {
 		pta = conexion.prepareStatement(sql);
 		pta.setString(1, p.getNombre_pelicula());
 		pta.setInt(2, p.getAnio_pelicula());
-		pta.setString(3, p.getCategoriaPelicula().toString());
+		pta.setInt(3, p.getCategoria_pelicula().getCodCategoria());
 		int num = pta.executeUpdate();
-		if (num == 1)
+		if (num == 1) {
 			return true;
-		else
+		}else {
+			System.out.println("Error al insertar Pelicula");
 			return false;// el insert ha fallado
+		}
 	}
 }
