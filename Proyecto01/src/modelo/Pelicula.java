@@ -65,7 +65,7 @@ public class Pelicula {
 			this.nombre_pelicula = LeerTeclado.leerPalabra("Introduce el nombre de la pelicula");
 			this.anio_pelicula = LeerTeclado.leerInt("Introduce el año de la pelicula");
 			System.out.println("Introduce el codigo de la categoria");
-			Categoria.Informe2();
+			Categoria.mostrarCategorias();
 			this.categoria_pelicula = Categoria.dimeCategoria(LeerTeclado.leerInt());
 		} catch (Exception e) {
             e.getStackTrace();

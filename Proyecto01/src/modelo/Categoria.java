@@ -44,7 +44,7 @@ public enum Categoria {
         return Categoria.values[val];
     }
 	
-	public static void Informe2() {
+	public static void mostrarCategorias() {
         StringBuilder sb;
         for (Categoria cat : Categoria.values()) {
             sb = new StringBuilder();
