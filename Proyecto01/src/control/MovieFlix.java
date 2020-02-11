@@ -72,6 +72,10 @@ public class MovieFlix {
 					servicioUsuarios.mostrarUsuario();
 					break;
 					
+				case 5:
+					//servicioUsuarios.modificarUsuario(usu);
+					break;
+					
 				case 0:
 					continuar = salir();
 					break;
