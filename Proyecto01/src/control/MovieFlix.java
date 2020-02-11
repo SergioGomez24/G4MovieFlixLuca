@@ -7,7 +7,7 @@ import utilidades.LeerTeclado;
 
 public class MovieFlix {
 	
-	private IGestion_Peliculas servicioPeliculas = new Gestion_Peliculas();
+	private IGestion_Peliculas servicioPeliculas;
 	
 	public void abrirMovieFlix() {
 		boolean seguir = true;
@@ -23,6 +23,7 @@ public class MovieFlix {
 		boolean continuar = true;
 		
 		try {
+			servicioPeliculas  = new Gestion_Peliculas();
 			switch(LeerTeclado.leerInt()) {
 				case 1:
 					servicioPeliculas.altaPelicula();
