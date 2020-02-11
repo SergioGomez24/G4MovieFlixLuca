@@ -22,5 +22,6 @@ public interface IGestion_Usuarios {
 	public void altaUsuario(Usuario usu);
 	public ArrayList<Usuario> listarUsuario();
 	public void mostrarUsuario();
+	public void modificarUsuario(Usuario usu);
 
 }

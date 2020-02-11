@@ -66,6 +66,20 @@ public class Gestion_Usuarios implements IGestion_Usuarios{
 		return lista;
 	}
 	
+	public void modificarUsuario(Usuario usu) {
+		try {
+			usuarioDao.modificarUsuario(usu);
+		} catch (SQLException e) {
+			logger.error("Error: " + e.getSQLState());
+		}finally {
+			try {
+				usuarioDao.liberarRecursos();
+			} catch (SQLException e) {
+				logger.error("Error: " + e.getSQLState());
+			}
+		}
+	}
+	
 	public void mostrarUsuario() {
 		Vista.imprimirColeccion(listarUsuario());
 	}
