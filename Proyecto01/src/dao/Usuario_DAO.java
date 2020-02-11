@@ -64,7 +64,7 @@ public class Usuario_DAO extends DAO implements IUsuario_DAO {
 
 	@Override
 	public boolean modificarUsuario(Usuario usu) throws SQLException {
-		String update = rb.getString("modificar.usuarios");
+		String update = rb.getString("modificar.usuario");
 		pta = conexion.prepareStatement(update);
 		pta.setString(1, usu.getNombre_Usuario());
 		pta.setDate(2, usu.getFechaNac_Usuario());
