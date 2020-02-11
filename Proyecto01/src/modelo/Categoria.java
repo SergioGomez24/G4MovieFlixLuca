@@ -42,7 +42,7 @@ public enum Categoria {
             Categoria.values = Categoria.values();
         }
         
-        return Categoria.values[val];
+        return Categoria.values[val-1];
     }
 	
 	public static void mostrarCategorias() {
