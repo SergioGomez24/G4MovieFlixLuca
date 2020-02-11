@@ -6,12 +6,9 @@ import java.util.ArrayList;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import dao.IPelicula_DAO;
 import dao.IUsuario_DAO;
-import dao.Pelicula_DAO;
 import dao.Usuario_DAO;
 import gui.Vista;
-import modelo.Pelicula;
 import modelo.Usuario;
 
 public class Gestion_Usuarios implements IGestion_Usuarios{
@@ -64,6 +61,27 @@ public class Gestion_Usuarios implements IGestion_Usuarios{
 			}
 		}
 		return lista;
+	}
+	
+	public void modificarUsuario() {
+		Usuario u = new Usuario();
+		String auxNick = u.pedirNick();
+		
+		try {
+			u = usuarioDao.buscarPorNick(auxNick);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		if(u != null) {
+			u.modUsuario();
+			this.modificarUsuario(u);
+		} else {
+			logger.info("El usuario con nick "+ auxNick + " no existe");
+		}
+		
+		
 	}
 	
 	public void modificarUsuario(Usuario usu) {

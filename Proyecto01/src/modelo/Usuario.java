@@ -88,5 +88,31 @@ public class Usuario {
 		}
 
 	}
+	
+	public String pedirNick() {
+		String nick = null;
+		
+		nick = LeerTeclado.leerPalabra("Introduce el nick que quieres buscar");
+		
+		return nick;
+	}
+	
+	public void modUsuario() {
+
+		try {
+			this.nombre_Usuario = LeerTeclado.leerLinea("Introduce el nombre del usuario");
+			this.residencia_Usuario = LeerTeclado.leerLinea("Introduce la ciudad de residencia");
+
+			String entrada = LeerTeclado.leerPalabra("Introduce la fecha de nacimiento con este formato MM/dd/yyyy");
+			DateFormat format = new SimpleDateFormat("MM/dd/yyyy"); // Creamos un formato de fecha
+			java.util.Date fecha = format.parse(entrada);
+			Date fechaSql = new Date( fecha.getTime());
+			this.fechaNac_Usuario = fechaSql;
+
+		} catch (Exception e) {
+			e.getStackTrace();
+		}
+
+	}
 
 }

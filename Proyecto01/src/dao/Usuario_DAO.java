@@ -80,4 +80,21 @@ public class Usuario_DAO extends DAO implements IUsuario_DAO {
 		}
 		
 	}
+	
+	public Usuario buscarPorNick(String nick) throws SQLException {
+		String buscar = rb.getString("buscar.usuario.nick");
+		pta = conexion.prepareStatement(buscar);
+		pta.setString(1, nick);
+		rs = pta.executeQuery();
+		
+		Usuario u = null;
+		if(rs.next()) {
+			u = new Usuario();
+			u.setNombre_Usuario(rs.getString("nombre_Usuario"));
+			u.setFechaNac_Usuario(rs.getDate("fechaNac_Usuario"));
+			u.setResidencia_Usuario(rs.getString("residencia_Usuario"));
+			u.setNick_Usuario(rs.getString("nick_Usuario"));
+		}
+		return u;
+	}
 }
