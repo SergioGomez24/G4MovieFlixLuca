@@ -12,5 +12,7 @@ public interface IUsuario_DAO {
 	public ArrayList<Usuario> listarUsuario() throws SQLException;
 	public boolean modificarUsuario(Usuario usu) throws SQLException;
 	public Usuario buscarPorNick(String nick) throws SQLException;
+	public void eliminarUsuario();
+	public void eliminarUsuario(Usuario usu);
 
 }
