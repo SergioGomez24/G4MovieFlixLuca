@@ -61,4 +61,23 @@ public class Usuario_DAO extends DAO implements IUsuario_DAO {
 		}
 		return lista;
 	}
+
+	@Override
+	public boolean modificarUsuario(Usuario usu) throws SQLException {
+		String update = rb.getString("modificar.usuario");
+		pta = conexion.prepareStatement(update);
+		pta.setString(1, usu.getNombre_Usuario());
+		pta.setDate(2, usu.getFechaNac_Usuario());
+		pta.setString(3, usu.getResidencia_Usuario());
+		pta.setString(4, usu.getNick_Usuario());
+		int num = pta.executeUpdate();
+		if (num == 1) {
+			logger.info("Modificación correcta");
+			return true;
+		} else {
+			logger.info("Modificación erronea");
+			return false;
+		}
+		
+	}
 }
