@@ -68,6 +68,10 @@ public class MovieFlix {
 					servicioUsuarios.altaUsuario();
 					break;
 					
+				case 4:
+					// introducir
+					break;
+					
 				case 0:
 					continuar = salir();
 					break;
