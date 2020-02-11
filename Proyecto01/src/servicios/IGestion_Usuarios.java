@@ -23,7 +23,7 @@ public interface IGestion_Usuarios {
 	public void mostrarUsuario();
 	public void modificarUsuario(Usuario usu);
 	public void modificarUsuario();
-	public void eliminarUsuario(String nick);
-	public void borrarUsuario();
+	public void eliminarUsuario();
+	
 
 }

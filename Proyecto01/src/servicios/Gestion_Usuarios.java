@@ -100,30 +100,23 @@ public class Gestion_Usuarios implements IGestion_Usuarios {
 		Vista.imprimirColeccion(listarUsuario());
 	}
 
-	public void eliminarUsuario(String nick) {
+	
+	public void eliminarUsuario() {
+		String nick = Usuario.pedirNick();
 		try {
-			usuarioDao.eliminarUsuario(nick);
+			if (usuarioDao.buscarPorNick(nick) == null)
+				logger.info("El usuario con nick " + nick + " no existe");
+			else
+				usuarioDao.eliminarUsuario(nick);
 		} catch (SQLException e) {
 			logger.error("Error: " + e.getSQLState());
-		}finally {
+
+		} finally {
 			try {
 				usuarioDao.liberarRecursos();
 			} catch (SQLException e) {
 				logger.error("Error: " + e.getSQLState());
 			}
 		}
-	}
-	
-	public void borrarUsuario() {
-		String nick = Usuario.pedirNick();
-		try {
-			if(usuarioDao.buscarPorNick(nick) == null)
-				logger.info("El usuario con nick " + nick + " no existe");
-			else
-				usuarioDao.eliminarUsuario(nick);
-		} catch (SQLException e) {
-			logger.error("Error: " + e.getSQLState());
-		}
-		
 	}
 }
