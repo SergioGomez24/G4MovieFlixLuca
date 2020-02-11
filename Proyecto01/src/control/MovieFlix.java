@@ -69,7 +69,7 @@ public class MovieFlix {
 					break;
 					
 				case 4:
-					// introducir
+					servicioUsuarios.listarUsuario();
 					break;
 					
 				case 0:
