@@ -61,6 +61,8 @@ public class Pelicula {
 	
 	public void crearPelicula() {
 		
+		System.out.println("CREAR PELICULA:");
+		
 		try {
 			this.nombre_pelicula = LeerTeclado.leerPalabra("Introduce el nombre de la pelicula");
 			this.anio_pelicula = LeerTeclado.leerInt("Introduce el año de la pelicula");

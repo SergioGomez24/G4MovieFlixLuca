@@ -72,7 +72,7 @@ public class Usuario_DAO extends DAO implements IUsuario_DAO {
 		pta.setString(4, usu.getNick_Usuario());
 		int num = pta.executeUpdate();
 		if (num == 1) {
-			logger.info("Modificación correcta");
+			System.out.println("Usuario modificado correctamente");
 			return true;
 		} else {
 			logger.info("Modificación erronea");

@@ -71,6 +71,8 @@ public class Usuario {
 	
 	//Método para crear un usuario
 	public void crearUsuario() {
+		
+		System.out.println("CREAR USUARIO:");
 
 		try {
 			this.nick_Usuario = LeerTeclado.leerPalabra("Introduce el nick del usuario");
@@ -89,15 +91,19 @@ public class Usuario {
 
 	}
 	
+	//Metodo para buscar el nick
 	public String pedirNick() {
 		String nick = null;
 		
-		nick = LeerTeclado.leerPalabra("Introduce el nick que quieres buscar");
+		nick = LeerTeclado.leerPalabra("Introduce el nick del usuario que quieres buscar");
 		
 		return nick;
 	}
 	
+	//Metodo para modificar el Usuario
 	public void modUsuario() {
+		
+		System.out.println("MODIFICAR USUARIO");
 
 		try {
 			this.nombre_Usuario = LeerTeclado.leerLinea("Introduce el nombre del usuario");
