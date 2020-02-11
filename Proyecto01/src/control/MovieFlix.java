@@ -1,12 +1,22 @@
 package control;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import gui.Menu;
 import servicios.Gestion_Peliculas;
 import servicios.IGestion_Peliculas;
 import utilidades.LeerTeclado;
 
 public class MovieFlix {
-	
+	private static Logger logger;
+	static {
+        try {
+            logger = LogManager.getLogger(MovieFlix.class);
+        } catch (Throwable e) {
+            System.out.println("Error en el logger");
+        }
+    }
 	private IGestion_Peliculas servicioPeliculas;
 	
 	public void abrirMovieFlix() {
@@ -35,7 +45,8 @@ public class MovieFlix {
 			}
 			
 		} catch (Exception e) {
-            System.out.println("error: " + e.toString());
+            //System.out.println("error: " + e.toString());
+			logger.warn("Error: " + e.getMessage()); 
 		}
 		
 		return continuar;

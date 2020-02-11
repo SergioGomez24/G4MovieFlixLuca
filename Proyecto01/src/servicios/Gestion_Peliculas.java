@@ -14,6 +14,9 @@ package servicios;
 
 import java.sql.SQLException;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import dao.IPelicula_DAO;
 import dao.Pelicula_DAO;
 import modelo.Pelicula;
@@ -21,7 +24,14 @@ import modelo.Pelicula;
 public class Gestion_Peliculas implements IGestion_Peliculas {
 
 	private IPelicula_DAO peliDao = new Pelicula_DAO();
-	
+	private static Logger logger;
+	static {
+        try {
+            logger = LogManager.getLogger(Gestion_Peliculas.class);
+        } catch (Throwable e) {
+            System.out.println("Error en el logger");
+        }
+    }
 	public void altaPelicula() {
 		Pelicula p = new Pelicula();
 		p.crearPelicula();
@@ -37,14 +47,14 @@ public class Gestion_Peliculas implements IGestion_Peliculas {
 		try {
 			peliDao.altaPelicula(peli);
 		}catch(SQLException e) {
-			System.out.println("Error 1");
-			//TODO añadir logger
+			//System.out.println("Error 1");
+			logger.error("Error: " + e.getSQLState());
 		}finally {
 			try {
 				peliDao.liberarRecursos();
 			}catch(SQLException e) {
-				System.out.println("Error 2");
-				//TODO
+				//System.out.println("Error 2");
+				logger.error("Error: " + e.getSQLState());
 			}
 		}
 	}

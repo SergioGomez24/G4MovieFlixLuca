@@ -2,10 +2,20 @@ package dao;
 
 import java.sql.SQLException;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import modelo.Pelicula;
 
 public class Pelicula_DAO extends DAO implements IPelicula_DAO {
-
+	private static Logger logger;
+	static {
+        try {
+            logger = LogManager.getLogger(Pelicula_DAO.class);
+        } catch (Throwable e) {
+            System.out.println("Error en el logger");
+        }
+    }
 	public Pelicula_DAO() {
 		super();
 	}
@@ -20,7 +30,8 @@ public class Pelicula_DAO extends DAO implements IPelicula_DAO {
 		if (num == 1) {
 			return true;
 		}else {
-			System.out.println("Error al insertar Pelicula");
+			logger.warn("Error al inserat Pelicula");
+			//System.out.println("Error al insertar Pelicula");
 			return false;// el insert ha fallado
 		}
 	}
