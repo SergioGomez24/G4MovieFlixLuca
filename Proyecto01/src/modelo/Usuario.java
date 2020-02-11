@@ -60,7 +60,7 @@ public class Usuario {
 
 		try {
 			this.nick_Usuario = LeerTeclado.leerPalabra("Introduce el nick del usuario");
-			this.nombre_Usuario = LeerTeclado.leerPalabra("Introduce el nombre del usuario");
+			this.nombre_Usuario = LeerTeclado.leerLinea("Introduce el nombre del usuario");
 			this.residencia_Usuario = LeerTeclado.leerLinea("Introduce la ciudad de residencia");
 
 			String entrada = LeerTeclado.leerPalabra("Introduce la fecha de nacimiento con este formato MM/dd/yyyy");
