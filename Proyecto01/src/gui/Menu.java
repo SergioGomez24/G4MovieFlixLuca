@@ -16,12 +16,14 @@ public class Menu {
 	
 	public static void mostrarMenu() {
 		
+		System.out.println("");
 		System.out.println("------ MENU ------");
 		System.out.println("Introduce alguna de estas opciones");
 		System.out.println("1. Alta Pelicula");
 		System.out.println("2. Mostrar Peliculas");
 		System.out.println("3. Alta Usuario");
 		System.out.println("4. Mostrar Usuarios");
+		System.out.println("5. Modificar Usuarios");
 		System.out.println("0. Salir");
 		
 	}
