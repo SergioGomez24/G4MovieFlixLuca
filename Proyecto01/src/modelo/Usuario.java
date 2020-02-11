@@ -1,8 +1,10 @@
 package modelo;
 
-
-
 import java.sql.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Month;
 
 import utilidades.LeerTeclado;
 
@@ -12,7 +14,7 @@ public class Usuario {
 	private Date fechaNac_Usuario;
 	private String residencia_Usuario;
 	private String nick_Usuario;
-	
+
 	public Usuario() {
 	}
 
@@ -53,8 +55,22 @@ public class Usuario {
 		return "Usuario [nombre_Usuario=" + nombre_Usuario + ", fechaNac_Usuario=" + fechaNac_Usuario
 				+ ", residencia_Usuario=" + residencia_Usuario + ", nick_Usuario=" + nick_Usuario + "]";
 	}
-	
-	
 
-	
+	public void crearUsuario() {
+
+		try {
+			this.nick_Usuario = LeerTeclado.leerPalabra("Introduce el nick del usuario");
+			this.nombre_Usuario = LeerTeclado.leerPalabra("Introduce el nombre del usuario");
+			String entrada = LeerTeclado.leerPalabra("Introduce la fecha de nacimiento con este formato dd/MM/yyyy");
+			DateFormat format = new SimpleDateFormat("DD/MM/YYYY"); // Creamos un formato de fecha
+			Date fecha = (Date) format.parse(entrada);
+			this.fechaNac_Usuario = fecha;
+			this.residencia_Usuario = LeerTeclado.leerPalabra("Introduce la ciudad de residencia");
+
+		} catch (Exception e) {
+			e.getStackTrace();
+		}
+
+	}
+
 }
