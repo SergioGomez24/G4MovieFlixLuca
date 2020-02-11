@@ -11,46 +11,46 @@ import dao.Usuario_DAO;
 import gui.Vista;
 import modelo.Usuario;
 
-public class Gestion_Usuarios implements IGestion_Usuarios{
-	
+public class Gestion_Usuarios implements IGestion_Usuarios {
+
 	private IUsuario_DAO usuarioDao = new Usuario_DAO();
 	private static Logger logger;
-	
+
 	static {
-        try {
-            logger = LogManager.getLogger(Gestion_Usuarios.class);
-        } catch (Throwable e) {
-            System.out.println("Error en el logger");
-        }
-    }
-	
+		try {
+			logger = LogManager.getLogger(Gestion_Usuarios.class);
+		} catch (Throwable e) {
+			System.out.println("Error en el logger");
+		}
+	}
+
 	public void altaUsuario() {
 		Usuario u = new Usuario();
 		u.crearUsuario();
 		this.altaUsuario(u);
 	}
-	
+
 	public void altaUsuario(Usuario usu) {
-		
+
 		try {
 			usuarioDao.altaUsuario(usu);
-		}catch(SQLException e) {
+		} catch (SQLException e) {
 			logger.error("Error: " + e.getSQLState());
-		}finally {
+		} finally {
 			try {
 				usuarioDao.liberarRecursos();
-			}catch(SQLException e) {
+			} catch (SQLException e) {
 				logger.error("Error: " + e.getSQLState());
 			}
 		}
-		
+
 	}
-	
-	public ArrayList<Usuario> listarUsuario(){
+
+	public ArrayList<Usuario> listarUsuario() {
 		ArrayList<Usuario> lista = null;
 		try {
 			lista = usuarioDao.listarUsuario();
-			
+
 		} catch (SQLException e) {
 			logger.error("Error: " + e.getSQLState());
 		} finally {
@@ -62,29 +62,47 @@ public class Gestion_Usuarios implements IGestion_Usuarios{
 		}
 		return lista;
 	}
-	
+
 	public void modificarUsuario() {
 		Usuario u = new Usuario();
-		String auxNick = u.pedirNick();
-		
+		String auxNick = Usuario.pedirNick();
+
 		try {
 			u = usuarioDao.buscarPorNick(auxNick);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		if(u != null) {
+
+		if (u != null) {
 			u.modUsuario();
 			this.modificarUsuario(u);
 		} else {
-			logger.info("El usuario con nick "+ auxNick + " no existe");
+			logger.info("El usuario con nick " + auxNick + " no existe");
 		}
 	}
-	
+
 	public void modificarUsuario(Usuario usu) {
 		try {
 			usuarioDao.modificarUsuario(usu);
+		} catch (SQLException e) {
+			logger.error("Error: " + e.getSQLState());
+		} finally {
+			try {
+				usuarioDao.liberarRecursos();
+			} catch (SQLException e) {
+				logger.error("Error: " + e.getSQLState());
+			}
+		}
+	}
+
+	public void mostrarUsuario() {
+		Vista.imprimirColeccion(listarUsuario());
+	}
+
+	public void eliminarUsuario(String nick) {
+		try {
+			usuarioDao.eliminarUsuario(nick);
 		} catch (SQLException e) {
 			logger.error("Error: " + e.getSQLState());
 		}finally {
@@ -96,8 +114,16 @@ public class Gestion_Usuarios implements IGestion_Usuarios{
 		}
 	}
 	
-	public void mostrarUsuario() {
-		Vista.imprimirColeccion(listarUsuario());
+	public void borrarUsuario() {
+		String nick = Usuario.pedirNick();
+		try {
+			if(usuarioDao.buscarPorNick(nick) == null)
+				logger.info("El usuario con nick " + nick + " no existe");
+			else
+				usuarioDao.eliminarUsuario(nick);
+		} catch (SQLException e) {
+			logger.error("Error: " + e.getSQLState());
+		}
+		
 	}
-
 }

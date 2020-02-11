@@ -92,7 +92,7 @@ public class Usuario {
 	}
 	
 	//Metodo para buscar el nick
-	public String pedirNick() {
+	public static String pedirNick() {
 		String nick = null;
 		
 		nick = LeerTeclado.leerPalabra("Introduce el nick del usuario que quieres buscar");
