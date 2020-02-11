@@ -6,8 +6,6 @@ import java.util.ArrayList;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import modelo.Categoria;
-import modelo.Pelicula;
 import modelo.Usuario;
 
 public class Usuario_DAO extends DAO implements IUsuario_DAO {
@@ -37,7 +35,7 @@ public class Usuario_DAO extends DAO implements IUsuario_DAO {
 		pta.setString(4, usu.getNick_Usuario());
 		int num = pta.executeUpdate();
 		if (num == 1) {
-			System.out.println("Usuario insertada correctamente");
+			System.out.println("Usuario insertado correctamente");
 			return true;
 		} else {
 			logger.warn("Error al insertar usuario");
