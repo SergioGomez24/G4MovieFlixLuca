@@ -64,7 +64,7 @@ public class Pelicula {
 		System.out.println("CREAR PELICULA:");
 		
 		try {
-			this.nombre_pelicula = LeerTeclado.leerPalabra("Introduce el nombre de la pelicula");
+			this.nombre_pelicula = LeerTeclado.leerLinea("Introduce el nombre de la pelicula");
 			this.anio_pelicula = LeerTeclado.leerInt("Introduce el año de la pelicula");
 			System.out.println("Introduce el codigo de la categoria");
 			Categoria.mostrarCategorias();
