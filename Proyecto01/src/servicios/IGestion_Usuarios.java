@@ -11,6 +11,8 @@
 
 package servicios;
 
+import modelo.Usuario;
+
 public interface IGestion_Usuarios {
 	
 	public void altaUsuario();
