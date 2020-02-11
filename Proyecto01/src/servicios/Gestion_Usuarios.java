@@ -80,8 +80,6 @@ public class Gestion_Usuarios implements IGestion_Usuarios{
 		} else {
 			logger.info("El usuario con nick "+ auxNick + " no existe");
 		}
-		
-		
 	}
 	
 	public void modificarUsuario(Usuario usu) {
