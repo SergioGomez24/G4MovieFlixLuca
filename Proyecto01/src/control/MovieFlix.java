@@ -77,7 +77,7 @@ public class MovieFlix {
 					break;
 				
 				case 6:
-					servicioUsuarios.eliminarUsuario();
+					servicioUsuarios.borrarUsuario();
 					break;
 					
 				case 0:
