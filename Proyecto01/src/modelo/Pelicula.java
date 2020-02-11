@@ -77,7 +77,7 @@ public class Pelicula {
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("Pelicula "+nombre_pelicula+" | año lanzamiento: "+anio_pelicula+" | categoria: "+categoria_pelicula+",");
+		sb.append("Pelicula: "+nombre_pelicula+" | año lanzamiento: "+anio_pelicula+" | categoria: "+categoria_pelicula+",");
 		return sb.toString();
 		
 	}
