@@ -52,8 +52,8 @@ public class Usuario {
 
 	@Override
 	public String toString() {
-		return "Usuario [nombre_Usuario=" + nombre_Usuario + ", fechaNac_Usuario=" + fechaNac_Usuario
-				+ ", residencia_Usuario=" + residencia_Usuario + ", nick_Usuario=" + nick_Usuario + "]";
+		return "Usuario: " + nombre_Usuario + ", Nick: " + nick_Usuario + ", fecha de nacimiento: " + fechaNac_Usuario
+				+ ", residencia: " + residencia_Usuario + "]";
 	}
 
 	public void crearUsuario() {
