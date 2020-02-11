@@ -97,4 +97,20 @@ public class Usuario_DAO extends DAO implements IUsuario_DAO {
 		}
 		return u;
 	}
+	
+	public boolean eliminarUsuario(String nick) throws SQLException {
+		String borrar = rb.getString("eliminar.usuario");
+		pta = conexion.prepareStatement(borrar);
+		pta.setString(1, nick);
+		int num = pta.executeUpdate();
+		if (num == 1) {
+			logger.info("Eliminado correctamente");
+			return true;
+		} else {
+			logger.info("Eliminación erronea");
+			return false;
+		}
+	}
+
+
 }

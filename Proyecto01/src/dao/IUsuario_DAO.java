@@ -12,5 +12,6 @@ public interface IUsuario_DAO {
 	public ArrayList<Usuario> listarUsuario() throws SQLException;
 	public boolean modificarUsuario(Usuario usu) throws SQLException;
 	public Usuario buscarPorNick(String nick) throws SQLException;
+	public boolean eliminarUsuario(String nick) throws SQLException;
 
 }
