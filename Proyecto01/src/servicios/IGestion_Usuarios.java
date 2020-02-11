@@ -23,7 +23,5 @@ public interface IGestion_Usuarios {
 	public void mostrarUsuario();
 	public void modificarUsuario(Usuario usu);
 	public void modificarUsuario();
-	public void eliminarUsuario();
-	public void eliminarUsuario(Usuario usu);
 
 }
