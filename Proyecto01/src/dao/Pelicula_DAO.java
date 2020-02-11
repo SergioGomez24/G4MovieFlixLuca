@@ -44,7 +44,7 @@ public class Pelicula_DAO extends DAO implements IPelicula_DAO {
 			System.out.println("Pelicula insertada correctamente");
 			return true;
 		}else {
-			logger.warn("Error al inserat Pelicula");
+			logger.warn("Error al insertar Pelicula");
 			//System.out.println("Error al insertar Pelicula");
 			return false;// el insert ha fallado
 		}
