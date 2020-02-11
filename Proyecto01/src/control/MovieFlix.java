@@ -1,3 +1,15 @@
+/**
+ * Clase MovieFlix
+ * 
+ * Contiene la informacion de la parte de control de las peliculas
+ * 
+ * Fecha: 10/02/2020
+ * 
+ * @author Sergio Gómez Benítez
+ * @version 1.0
+ *
+ */
+
 package control;
 
 import org.apache.logging.log4j.LogManager;

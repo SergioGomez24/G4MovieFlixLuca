@@ -33,9 +33,10 @@ public enum Categoria {
         return size;
     }
 	
-	//Metodo para elegir la categoria de una Pelicula
+	
     private static Categoria[] values = null;
-
+    
+  //Metodo para elegir la categoria de una Pelicula
     public static Categoria dimeCategoria(int val) {
         if (Categoria.values == null) {
             Categoria.values = Categoria.values();
