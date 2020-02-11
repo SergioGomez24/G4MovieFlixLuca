@@ -23,7 +23,8 @@ public class Menu {
 		System.out.println("2. Mostrar Peliculas");
 		System.out.println("3. Alta Usuario");
 		System.out.println("4. Mostrar Usuarios");
-		System.out.println("5. Modificar Usuarios");
+		System.out.println("5. Modificar Usuario");
+		System.out.println("6. Eliminar Usuario");
 		System.out.println("0. Salir");
 		
 	}
