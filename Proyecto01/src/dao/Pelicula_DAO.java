@@ -12,10 +12,12 @@
 package dao;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import modelo.Categoria;
 import modelo.Pelicula;
 
 public class Pelicula_DAO extends DAO implements IPelicula_DAO {
@@ -46,5 +48,23 @@ public class Pelicula_DAO extends DAO implements IPelicula_DAO {
 			//System.out.println("Error al insertar Pelicula");
 			return false;// el insert ha fallado
 		}
+	}
+
+	@Override
+	public ArrayList<Pelicula> listarPelicula() throws SQLException {
+		ArrayList<Pelicula> lista = new ArrayList<Pelicula>();
+		String consulta = rb.getString("listar.peliculas");
+		pta = conexion.prepareStatement(consulta);
+		rs = pta.executeQuery();
+		
+		while(rs.next()) {
+			Pelicula p = new Pelicula();
+			p.setNombre_pelicula(rs.getString("nombre_pelicula"));
+			p.setAnio_pelicula(rs.getInt("anio_pelicula"));
+			p.setCategoria_pelicula(Categoria.dimeCategoria(rs.getInt("categoria_pelicula")));
+			
+			lista.add(p);
+		}
+		return lista;
 	}
 }

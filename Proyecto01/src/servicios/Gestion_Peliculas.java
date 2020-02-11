@@ -13,6 +13,7 @@
 package servicios;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -57,5 +58,21 @@ public class Gestion_Peliculas implements IGestion_Peliculas {
 				logger.error("Error: " + e.getSQLState());
 			}
 		}
+	}
+	
+	public ArrayList<Pelicula> listarPelicula(){
+		ArrayList<Pelicula> lista = null;
+		try {
+			lista = peliDao.listarPelicula();
+		} catch (SQLException e) {
+			logger.error("Error: " + e.getSQLState());
+		} finally {
+			try {
+				peliDao.liberarRecursos();
+			} catch (SQLException e) {
+				logger.error("Error: " + e.getSQLState());
+			}
+		}
+		return lista;
 	}
 }
