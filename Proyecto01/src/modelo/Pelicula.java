@@ -76,8 +76,10 @@ public class Pelicula {
 	//Metodo tostring
 	@Override
 	public String toString() {
-		return "Pelicula [nombre_pelicula=" + nombre_pelicula + ", anio_pelicula="
-				+ anio_pelicula + ", categoria=" + categoria_pelicula + "]";
+		StringBuilder sb = new StringBuilder();
+		sb.append("Pelicula "+nombre_pelicula+" | año lanzamiento: "+anio_pelicula+" | categoria: "+categoria_pelicula+",");
+		return sb.toString();
+		
 	}
 
 }

@@ -50,6 +50,10 @@ public class MovieFlix {
 				case 1:
 					servicioPeliculas.altaPelicula();
 					break;
+				
+				case 2:
+					servicioPeliculas.mostrarPelicula();
+					break;
 					
 				case 0:
 					continuar = salir();
