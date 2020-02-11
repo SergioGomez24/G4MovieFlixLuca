@@ -5,7 +5,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import modelo.Usuario;
 
-public class Usuario_DAO extends DAO {
+public class Usuario_DAO extends DAO implements IUsuario_DAO {
 	private static Logger logger;
 	static {
 		try {
@@ -19,6 +19,10 @@ public class Usuario_DAO extends DAO {
 		super();
 	}
 
+	/* (non-Javadoc)
+	 * @see dao.IUsuario_DAO#altaUsuario(modelo.Usuario)
+	 */
+	@Override
 	public boolean altaUsuario(Usuario usu) throws SQLException {
 		String sql = rb.getString("insertar.usuario");
 		pta = conexion.prepareStatement(sql);
