@@ -20,6 +20,7 @@ import org.apache.logging.log4j.Logger;
 
 import dao.IPelicula_DAO;
 import dao.Pelicula_DAO;
+import gui.Vista;
 import modelo.Pelicula;
 
 public class Gestion_Peliculas implements IGestion_Peliculas {
@@ -64,6 +65,7 @@ public class Gestion_Peliculas implements IGestion_Peliculas {
 		ArrayList<Pelicula> lista = null;
 		try {
 			lista = peliDao.listarPelicula();
+			
 		} catch (SQLException e) {
 			logger.error("Error: " + e.getSQLState());
 		} finally {
@@ -74,5 +76,9 @@ public class Gestion_Peliculas implements IGestion_Peliculas {
 			}
 		}
 		return lista;
+	}
+	
+	public void mostrarPelicula() {
+		Vista.imprimirColeccion(listarPelicula());
 	}
 }
