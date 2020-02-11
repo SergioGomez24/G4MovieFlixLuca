@@ -1,8 +1,13 @@
 package dao;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import modelo.Categoria;
+import modelo.Pelicula;
 import modelo.Usuario;
 
 public class Usuario_DAO extends DAO implements IUsuario_DAO {
@@ -38,5 +43,24 @@ public class Usuario_DAO extends DAO implements IUsuario_DAO {
 			logger.warn("Error al insertar usuario");
 			return false;// el insert ha fallado
 		}
+	}
+	
+	@Override
+	public ArrayList<Usuario> listarUsuario() throws SQLException {
+		ArrayList<Usuario> lista = new ArrayList<Usuario>();
+		String consulta = rb.getString("listar.usuarios");
+		pta = conexion.prepareStatement(consulta);
+		rs = pta.executeQuery();
+		
+		while(rs.next()) {
+			Usuario u = new Usuario();
+			u.setNombre_Usuario(rs.getString("nombre_Usuario"));
+			u.setFechaNac_Usuario(rs.getDate("fechaNac_Usuario"));
+			u.setResidencia_Usuario(rs.getString("residencia_Usuario"));
+			u.setNick_Usuario(rs.getString("nick_Usuario"));
+			
+			lista.add(u);
+		}
+		return lista;
 	}
 }
