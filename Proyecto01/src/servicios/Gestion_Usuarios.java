@@ -1,6 +1,7 @@
 package servicios;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -9,6 +10,8 @@ import dao.IPelicula_DAO;
 import dao.IUsuario_DAO;
 import dao.Pelicula_DAO;
 import dao.Usuario_DAO;
+import gui.Vista;
+import modelo.Pelicula;
 import modelo.Usuario;
 
 public class Gestion_Usuarios implements IGestion_Usuarios{
@@ -44,6 +47,27 @@ public class Gestion_Usuarios implements IGestion_Usuarios{
 			}
 		}
 		
+	}
+	
+	public ArrayList<Usuario> listarUsuario(){
+		ArrayList<Usuario> lista = null;
+		try {
+			lista = usuarioDao.listarUsuario();
+			
+		} catch (SQLException e) {
+			logger.error("Error: " + e.getSQLState());
+		} finally {
+			try {
+				usuarioDao.liberarRecursos();
+			} catch (SQLException e) {
+				logger.error("Error: " + e.getSQLState());
+			}
+		}
+		return lista;
+	}
+	
+	public void mostrarUsuario() {
+		Vista.imprimirColeccion(listarUsuario());
 	}
 
 }
