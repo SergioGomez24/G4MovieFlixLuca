@@ -66,6 +66,10 @@ public class Gestion_Usuarios implements IGestion_Usuarios{
 		return lista;
 	}
 	
+	public void mostrarUsuario() {
+		Vista.imprimirColeccion(listarUsuario());
+	}
+	
 	public void modificarUsuario(Usuario usu) {
 		try {
 			usuarioDao.modificarUsuario(usu);
@@ -79,9 +83,4 @@ public class Gestion_Usuarios implements IGestion_Usuarios{
 			}
 		}
 	}
-	
-	public void mostrarUsuario() {
-		Vista.imprimirColeccion(listarUsuario());
-	}
-
 }
