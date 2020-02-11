@@ -36,7 +36,7 @@ public class Pelicula_DAO extends DAO implements IPelicula_DAO {
 		pta = conexion.prepareStatement(sql);
 		pta.setString(1, p.getNombre_pelicula());
 		pta.setInt(2, p.getAnio_pelicula());
-		pta.setInt(3, p.getCategoria_pelicula().getCodCategoria()-1);
+		pta.setInt(3, p.getCategoria_pelicula().getCodCategoria());
 		int num = pta.executeUpdate();
 		if (num == 1) {
 			System.out.println("Pelicula insertada correctamente");
