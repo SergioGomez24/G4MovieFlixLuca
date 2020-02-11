@@ -1,23 +1,36 @@
+/**
+ *Clase Usuario
+ * 
+ * Contiene información de cada usuario.
+ * 
+ * Fecha: 11/02/2020
+ * 
+ * @author David Heras Montegrifo
+ * @version 1.0
+ *
+ */
 package modelo;
 
 import java.sql.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.Month;
+
 
 import utilidades.LeerTeclado;
 
 public class Usuario {
 
+	//atributos
 	private String nombre_Usuario;
 	private Date fechaNac_Usuario;
 	private String residencia_Usuario;
 	private String nick_Usuario;
-
+	
+	//Constructor vacio
 	public Usuario() {
 	}
-
+	
+	//Metodos GETTER/SETTER
 	public String getNombre_Usuario() {
 		return nombre_Usuario;
 	}
@@ -55,7 +68,8 @@ public class Usuario {
 		return "Usuario [nombre_Usuario=" + nombre_Usuario + ", fechaNac_Usuario=" + fechaNac_Usuario
 				+ ", residencia_Usuario=" + residencia_Usuario + ", nick_Usuario=" + nick_Usuario + "]";
 	}
-
+	
+	//Método para crear un usuario
 	public void crearUsuario() {
 
 		try {
