@@ -17,11 +17,15 @@ import org.apache.logging.log4j.Logger;
 
 import gui.Menu;
 import servicios.Gestion_Peliculas;
+import servicios.Gestion_Usuarios;
 import servicios.IGestion_Peliculas;
+import servicios.IGestion_Usuarios;
 import utilidades.LeerTeclado;
 
 public class MovieFlix {
+	
 	private static Logger logger;
+	
 	static {
         try {
             logger = LogManager.getLogger(MovieFlix.class);
@@ -29,7 +33,9 @@ public class MovieFlix {
             System.out.println("Error en el logger");
         }
     }
+	
 	private IGestion_Peliculas servicioPeliculas;
+	private IGestion_Usuarios servicioUsuarios;
 	
 	public void abrirMovieFlix() {
 		boolean seguir = true;
@@ -45,7 +51,10 @@ public class MovieFlix {
 		boolean continuar = true;
 		
 		try {
+			
 			servicioPeliculas  = new Gestion_Peliculas();
+			servicioUsuarios = new Gestion_Usuarios();
+			
 			switch(LeerTeclado.leerInt()) {
 				case 1:
 					servicioPeliculas.altaPelicula();
@@ -53,6 +62,10 @@ public class MovieFlix {
 				
 				case 2:
 					servicioPeliculas.mostrarPelicula();
+					break;
+				
+				case 3: 
+					servicioUsuarios.altaUsuario();
 					break;
 					
 				case 0:

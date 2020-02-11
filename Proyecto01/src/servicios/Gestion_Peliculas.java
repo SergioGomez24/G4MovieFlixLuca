@@ -27,6 +27,7 @@ public class Gestion_Peliculas implements IGestion_Peliculas {
 
 	private IPelicula_DAO peliDao = new Pelicula_DAO();
 	private static Logger logger;
+	
 	static {
         try {
             logger = LogManager.getLogger(Gestion_Peliculas.class);
@@ -34,6 +35,7 @@ public class Gestion_Peliculas implements IGestion_Peliculas {
             System.out.println("Error en el logger");
         }
     }
+	
 	public void altaPelicula() {
 		Pelicula p = new Pelicula();
 		p.crearPelicula();
