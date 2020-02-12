@@ -10,5 +10,7 @@ public interface IGestion_Peliculas {
 	public void altaPelicula(Pelicula peli);
 	public ArrayList<Pelicula> listarPelicula();
 	public void mostrarPelicula();
+	public void filtrarPeliculaPorUsuario();
+	public ArrayList<Pelicula> filtrarPeliculaPorUsuario(String nick);
 
 }

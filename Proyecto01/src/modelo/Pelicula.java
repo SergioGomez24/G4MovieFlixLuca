@@ -19,7 +19,7 @@ public class Pelicula {
 	//Atributos
 	private String nombre_pelicula;
 	private int anio_pelicula;
-	private Categoria categoria_pelicula;
+	private int categoria_pelicula;
 	
 	//Contructor superclase
 	public Pelicula() {
@@ -27,7 +27,7 @@ public class Pelicula {
 	}
 	
 	//Constructor con atributos
-	public Pelicula(String nombre_pelicula, int anio_pelicula, Categoria categoria_pelicula) {
+	public Pelicula(String nombre_pelicula, int anio_pelicula, int categoria_pelicula) {
 		super();
 		this.nombre_pelicula = nombre_pelicula;
 		this.anio_pelicula = anio_pelicula;
@@ -51,11 +51,11 @@ public class Pelicula {
 		this.anio_pelicula = anio_pelicula;
 	}
 
-	public Categoria getCategoria_pelicula() {
+	public int getCategoria_pelicula() {
 		return categoria_pelicula;
 	}
 
-	public void setCategoria_pelicula(Categoria categoria_pelicula) {
+	public void setCategoria_pelicula(int categoria_pelicula) {
 		this.categoria_pelicula = categoria_pelicula;
 	}
 	
@@ -66,13 +66,15 @@ public class Pelicula {
 		try {
 			this.nombre_pelicula = LeerTeclado.leerLinea("Introduce el nombre de la pelicula");
 			this.anio_pelicula = LeerTeclado.leerInt("Introduce el año de la pelicula");
-			System.out.println("Introduce el codigo de la categoria");
-			Categoria.mostrarCategorias();
-			this.categoria_pelicula = Categoria.dimeCategoria(LeerTeclado.leerInt());
 		} catch (Exception e) {
             e.getStackTrace();
 		}
+	}
+	
+	public int pedirCategoria() {
+		int num = LeerTeclado.leerInt("Introduce una categoria");
 		
+		return num;
 	}
 	
 	//Metodo tostring

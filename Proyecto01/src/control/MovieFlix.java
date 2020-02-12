@@ -81,7 +81,7 @@ public class MovieFlix {
 					break;
 				
 				case 7:
-					//LLamar a el metodo listarPorUsuario en servivios
+					servicioPeliculas.filtrarPeliculaPorUsuario();
 					break;
 					
 				case 0:

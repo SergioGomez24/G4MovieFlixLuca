@@ -13,15 +13,17 @@ package dao;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import modelo.Categoria;
 import modelo.Pelicula;
 
 public class Pelicula_DAO extends DAO implements IPelicula_DAO {
+	
 	private static Logger logger;
+	
 	static {
         try {
             logger = LogManager.getLogger(Pelicula_DAO.class);
@@ -38,7 +40,7 @@ public class Pelicula_DAO extends DAO implements IPelicula_DAO {
 		pta = conexion.prepareStatement(sql);
 		pta.setString(1, p.getNombre_pelicula());
 		pta.setInt(2, p.getAnio_pelicula());
-		pta.setInt(3, p.getCategoria_pelicula().getCodCategoria());
+		pta.setInt(3, p.getCategoria_pelicula());
 		int num = pta.executeUpdate();
 		if (num == 1) {
 			System.out.println("Pelicula insertada correctamente");
@@ -61,10 +63,45 @@ public class Pelicula_DAO extends DAO implements IPelicula_DAO {
 			Pelicula p = new Pelicula();
 			p.setNombre_pelicula(rs.getString("nombre_pelicula"));
 			p.setAnio_pelicula(rs.getInt("anio_pelicula"));
-			p.setCategoria_pelicula(Categoria.dimeCategoria(rs.getInt("categoria_pelicula")));
+			p.setCategoria_pelicula(rs.getInt("categoria_pelicula"));
 			
 			lista.add(p);
 		}
 		return lista;
+	}
+	
+	public HashMap<Integer, String> mostrarCategoria() throws SQLException{
+		
+		HashMap<Integer, String> mapa = new HashMap<Integer, String>();
+		String consulta = rb.getString("listar.categorias");
+		
+		pta = conexion.prepareStatement(consulta);
+		rs = pta.executeQuery();
+		
+		while(rs.next()) {
+			mapa.put(rs.getInt("cod_categoria"), rs.getString("nombre_categoria"));
+		}
+		
+		return mapa;
+	}
+	
+	public ArrayList<Pelicula> listarPeliculasPorUsuarios(String nick) throws SQLException{
+		ArrayList<Pelicula> lista = new ArrayList<Pelicula>();
+		String consulta = rb.getString("filtrar.pelicula.usuario");
+		pta = conexion.prepareStatement(consulta);
+		pta.setString(1, nick);
+		
+		rs = pta.executeQuery();
+		
+		while(rs.next()) {
+			Pelicula p = new Pelicula();
+			p.setNombre_pelicula(rs.getString("nombre_pelicula"));
+			p.setAnio_pelicula(rs.getInt("anio_pelicula"));
+			p.setCategoria_pelicula(rs.getInt("categoria_pelicula"));
+			
+			lista.add(p);
+		}
+		return lista;
+		
 	}
 }
