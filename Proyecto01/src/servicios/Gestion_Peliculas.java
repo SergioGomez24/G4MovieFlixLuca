@@ -15,7 +15,6 @@ package servicios;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Map;
-import java.util.Locale.Category;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -45,7 +44,7 @@ public class Gestion_Peliculas implements IGestion_Peliculas {
 		Pelicula p = new Pelicula();
 		p.crearPelicula();
 		Vista.imprimirColeccion(mostrarCategorias());
-		p.setCategoria_pelicula(p.pedirCategoria());
+		p.setCategoria_pelicula(Pelicula.pedirCategoria());
 		this.altaPelicula(p);
 	}
 
