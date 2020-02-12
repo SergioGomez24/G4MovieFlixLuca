@@ -1,3 +1,15 @@
+/**
+ *Gestion_Usuario
+ * 
+ * Contiene la implementación de la gestión de los usuarios con el método altaPelicula.
+ * 
+ * Fecha: 10/02/2020
+ * 
+ * @author David Heras Montegrifo
+ * @version 1.0
+ *
+ */
+
 package servicios;
 
 import java.sql.SQLException;
