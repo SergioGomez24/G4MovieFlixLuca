@@ -15,6 +15,7 @@ package servicios;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.Locale.Category;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -140,8 +141,13 @@ public class Gestion_Peliculas implements IGestion_Peliculas {
 	}
 	
 	public void filtrarPeliculaPorCategoria() {
-		Vista.imprimirColeccion(mostrarCategorias());
-		Vista.imprimirColeccion(filtrarPeliculaPorCategoria(Pelicula.pedirCategoria()));
+		Map<Integer, String> mapa =mostrarCategorias(); 
+		Vista.imprimirColeccion(mapa);
+		int num = Pelicula.pedirCategoria();
+		if(num >=1 && num<=mapa.size())
+			Vista.imprimirColeccion(filtrarPeliculaPorCategoria(num));
+		else
+			logger.info("Categoria no valida");
 	}
 
 	
