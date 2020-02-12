@@ -80,7 +80,10 @@ public class Pelicula_DAO extends DAO implements IPelicula_DAO {
 		}
 		return lista;
 	}
-
+	/**
+	 * Devuelve todos los registros de la tabla Categoria en forma de HashMap en formato (codigo, valor)
+	 * @return un HashMap de String con las categorías dadas de alta y un codigo asociado
+	 */
 	public HashMap<Integer, String> mostrarCategoria() throws SQLException {
 
 		HashMap<Integer, String> mapa = new HashMap<Integer, String>();
@@ -95,7 +98,11 @@ public class Pelicula_DAO extends DAO implements IPelicula_DAO {
 
 		return mapa;
 	}
-
+	/**
+	 * Listado de elementos de la tabla Pelicula filtrados a través de un usuario
+	 * @param nick Nick (único) de usuario
+	 * @return ArrayList de objetos de tipo Pelicula cuya categoria sean la de el usuario correspondiente
+	 */
 	public ArrayList<Pelicula> listarPeliculasPorUsuarios(String nick) throws SQLException {
 		ArrayList<Pelicula> lista = new ArrayList<Pelicula>();
 		String consulta = rb.getString("filtrar.pelicula.usuario");
@@ -115,7 +122,11 @@ public class Pelicula_DAO extends DAO implements IPelicula_DAO {
 		return lista;
 
 	}
-
+	/**
+	 * Listado de elementos de la tabla Pelicula filtrados a través de la categoría
+	 * @param cat Categoría de la/s película/s a filtrar
+	 * @return ArrayList de objetos de tipo Pelicula cuya categoria con la categoría introducida
+	 */
 	public ArrayList<Pelicula> listarPeliculasPorCategoria(int cat) throws SQLException {
 		ArrayList<Pelicula> lista = new ArrayList<Pelicula>();
 		String consulta = rb.getString("filtrar.pelicula.categoria");
