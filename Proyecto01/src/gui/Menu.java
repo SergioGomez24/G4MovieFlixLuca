@@ -26,6 +26,8 @@ public class Menu {
 		System.out.println("5. Modificar Usuario");
 		System.out.println("6. Eliminar Usuario");
 		System.out.println("7. Mostrar Peliculas por Usuario");
+		System.out.println("8. Mostrar Peliculas por Categoría");
+
 		System.out.println("0. Salir");
 		
 	}

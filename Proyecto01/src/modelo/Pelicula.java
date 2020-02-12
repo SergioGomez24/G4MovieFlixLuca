@@ -71,7 +71,7 @@ public class Pelicula {
 		}
 	}
 	
-	public int pedirCategoria() {
+	public static int pedirCategoria() {
 		int num = LeerTeclado.leerInt("Introduce una categoria");
 		
 		return num;

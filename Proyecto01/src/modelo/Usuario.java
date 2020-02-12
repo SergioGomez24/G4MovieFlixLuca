@@ -15,22 +15,21 @@ import java.sql.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
-
 import utilidades.LeerTeclado;
 
 public class Usuario {
 
-	//atributos
+	// atributos
 	private String nombre_Usuario;
 	private Date fechaNac_Usuario;
 	private String residencia_Usuario;
 	private String nick_Usuario;
-	
-	//Constructor vacio
+
+	// Constructor vacio
 	public Usuario() {
 	}
-	
-	//Metodos GETTER/SETTER
+
+	// Metodos GETTER/SETTER
 	public String getNombre_Usuario() {
 		return nombre_Usuario;
 	}
@@ -68,10 +67,10 @@ public class Usuario {
 		return "Usuario: " + nombre_Usuario + "| Nick: " + nick_Usuario + "| fecha de nacimiento: " + fechaNac_Usuario
 				+ "| residencia: " + residencia_Usuario + "]";
 	}
-	
-	//Método para crear un usuario
+
+	// Método para crear un usuario
 	public void crearUsuario() {
-		
+
 		System.out.println("CREAR USUARIO:");
 
 		try {
@@ -82,7 +81,7 @@ public class Usuario {
 			String entrada = LeerTeclado.leerPalabra("Introduce la fecha de nacimiento con este formato MM/dd/yyyy");
 			DateFormat format = new SimpleDateFormat("MM/dd/yyyy"); // Creamos un formato de fecha
 			java.util.Date fecha = format.parse(entrada);
-			Date fechaSql = new Date( fecha.getTime());
+			Date fechaSql = new Date(fecha.getTime());
 			this.fechaNac_Usuario = fechaSql;
 
 		} catch (Exception e) {
@@ -90,19 +89,19 @@ public class Usuario {
 		}
 
 	}
-	
-	//Metodo para buscar el nick
+
+	// Metodo para buscar el nick
 	public static String pedirNick() {
 		String nick = null;
-		
+
 		nick = LeerTeclado.leerPalabra("Introduce el nick del usuario que quieres buscar");
-		
+
 		return nick;
 	}
-	
-	//Metodo para modificar el Usuario
+
+	// Metodo para modificar el Usuario
 	public void modUsuario() {
-		
+
 		System.out.println("MODIFICAR USUARIO");
 
 		try {
@@ -112,7 +111,7 @@ public class Usuario {
 			String entrada = LeerTeclado.leerPalabra("Introduce la fecha de nacimiento con este formato MM/dd/yyyy");
 			DateFormat format = new SimpleDateFormat("MM/dd/yyyy"); // Creamos un formato de fecha
 			java.util.Date fecha = format.parse(entrada);
-			Date fechaSql = new Date( fecha.getTime());
+			Date fechaSql = new Date(fecha.getTime());
 			this.fechaNac_Usuario = fechaSql;
 
 		} catch (Exception e) {

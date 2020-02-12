@@ -124,4 +124,28 @@ public class Gestion_Peliculas implements IGestion_Peliculas {
 		}
 		return lista;
 	}
+	
+	public void filtrarPeliculaPorCategoria() {
+		Vista.imprimirColeccion(filtrarPeliculaPorCategoria(Pelicula.pedirCategoria()));
+	}
+
+	
+	
+	public ArrayList<Pelicula> filtrarPeliculaPorCategoria(int cat) {
+		ArrayList<Pelicula> lista = null;
+
+		try {
+			lista = peliDao.listarPeliculasPorCategoria(cat);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				peliDao.liberarRecursos();
+			} catch (SQLException e) {
+				logger.error("Error: " + e.getSQLState());
+			}
+		}
+		return lista;
+	} 
 }

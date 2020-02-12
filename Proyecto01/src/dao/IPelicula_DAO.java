@@ -13,5 +13,6 @@ public interface IPelicula_DAO {
 	public ArrayList<Pelicula> listarPelicula() throws SQLException;
 	public HashMap<Integer, String> mostrarCategoria() throws SQLException;
 	public ArrayList<Pelicula> listarPeliculasPorUsuarios(String nick) throws SQLException;
+	public ArrayList<Pelicula> listarPeliculasPorCategoria(int cat) throws SQLException;
 
 }
