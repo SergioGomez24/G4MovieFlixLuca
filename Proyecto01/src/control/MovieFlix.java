@@ -79,6 +79,10 @@ public class MovieFlix {
 				case 6:
 					servicioUsuarios.eliminarUsuario();
 					break;
+				
+				case 7:
+					//LLamar a el metodo listarPorUsuario en servivios
+					break;
 					
 				case 0:
 					continuar = salir();
