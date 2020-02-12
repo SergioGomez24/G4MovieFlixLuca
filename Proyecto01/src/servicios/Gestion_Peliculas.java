@@ -140,6 +140,7 @@ public class Gestion_Peliculas implements IGestion_Peliculas {
 	}
 	
 	public void filtrarPeliculaPorCategoria() {
+		Vista.imprimirColeccion(mostrarCategorias());
 		Vista.imprimirColeccion(filtrarPeliculaPorCategoria(Pelicula.pedirCategoria()));
 	}
 
