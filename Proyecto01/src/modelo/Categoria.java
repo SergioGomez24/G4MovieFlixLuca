@@ -1,40 +1,45 @@
-/**
- *Enumeracion Categoria
- * 
- * Contiene la enumeración de las distintas categorías con su código.
- * 
- * Fecha: 10/02/2020
- * 
- * @author David Heras Montegrifo
- * @version 1.0
- *
- */
 package modelo;
 
-public enum Categoria {
-
-	POLICIACA(1), ROMANTICA(2), AVENTURAS(3), COMEDIA(4), ANIMACION(5), THRILLER(6);
-
+public class Categoria {
+	
 	//Atributo
-	private final int codCategoria;
-	private static final int size = Categoria.values().length;
-
-	//Constructor
-	private Categoria(int codCategoria) {
-		this.codCategoria = codCategoria;
+	private int codCategoria;
+	private String nombreCategoria;
+	
+    public Categoria() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
-	//Metodo getter
+	public Categoria(int codCategoria, String nombreCategoria) {
+		super();
+		this.codCategoria = codCategoria;
+		this.nombreCategoria = nombreCategoria;
+	}
+
 	public int getCodCategoria() {
 		return codCategoria;
 	}
-	
-	public static int getSize() {
-        return size;
-    }
-	
-	
-    private static Categoria[] values = null;
+
+	public void setCodCategoria(int codCategoria) {
+		this.codCategoria = codCategoria;
+	}
+
+	public String getNombreCategoria() {
+		return nombreCategoria;
+	}
+
+	public void setNombreCategoria(String nombreCategoria) {
+		this.nombreCategoria = nombreCategoria;
+	}
+
+	@Override
+	public String toString() {
+		return "Categoria [codCategoria=" + codCategoria + ", nombreCategoria=" + nombreCategoria + "]";
+	}
+
+
+	/*private static Categoria[] values = null;
     
   //Metodo para elegir la categoria de una Pelicula
     public static Categoria dimeCategoria(int val) {
@@ -56,6 +61,6 @@ public enum Categoria {
                     append("|");
             System.out.println(sb);
         }
-    }
+    }*/
 
 }
