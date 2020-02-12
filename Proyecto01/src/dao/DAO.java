@@ -12,7 +12,7 @@ import conexion.Conexion;
 /**
  * Clase DAO padre
  * 
- * Contiene información de cada Pelicula * 
+ * Se encarga de la comunicacion con la base de datos.</br> 
  * Fecha: 10/02/2020
  * 
  * @author Leonardo Flórez Matute
@@ -26,7 +26,9 @@ public abstract class DAO {
 	protected ResourceBundle rb;
 	protected PreparedStatement pta;
 	protected CallableStatement cta;
-	
+	/**
+	 * Constructor, una nueva conexión a la base de datos
+	 */
 	public DAO() {
 		Conexion con = new Conexion();
 		con.crearConexion();
@@ -38,7 +40,7 @@ public abstract class DAO {
 	 * Liberamos recursos.
 	 * El proceso sera en el orden inverso de creacion.
 	 * 
-	 * @throws SQLException
+	 * @throws SQLException 
 	 */
 	public void liberarRecursos() throws SQLException {
 		if (rs != null) {
@@ -65,6 +67,8 @@ public abstract class DAO {
 	
 	/**
 	 * Proceso de inicio de la transaccion.
+	 * 
+	 * @throws SQLException
 	 */
 	public void iniciar_Transaccion() throws SQLException {
 		if (conexion != null) {
@@ -98,7 +102,7 @@ public abstract class DAO {
 	 * Proceso para recibir la conexion de otro dao y poder resolver las
 	 * transacciones.
 	 * 
-	 * @param conexion
+	 * @param conexion 
 	 */
 	public void recibir_Conexion(Connection conexion) throws SQLException {
 		liberarRecursos();

@@ -1,11 +1,12 @@
 /**
  * Clase Pelicula_DAO
  * 
- * Contiene la informacion de la gestion de datos de las peliculas
+ *Se encarga de gestionar la conexion entre la clase Pelicula y la tabla pelicula de la base de datos
  * 
  * Fecha: 11/02/2020
  * 
  * @author Leonardo Flórez Matute
+ * @see Pelicula
  * @version 1.0
  *
  */
@@ -35,7 +36,13 @@ public class Pelicula_DAO extends DAO implements IPelicula_DAO {
 	public Pelicula_DAO() {
 		super();
 	}
-
+	/**
+	 * Crea un nuevo registro en la tabla Pelicula con una pelicula generada por el usuario
+	 * @param p Pelicula lista para ser enviada
+	 * @throws SQLException
+	 * @return <ul><li><code>true</code>: el objeto pelicula se ha registrado correctamente en la base de datos</li>
+	 * <li><code>false</code>: ha ocurrido un error creando el registro</li></ul>
+	 */
 	public boolean altaPelicula(Pelicula p) throws SQLException {
 		String sql = rb.getString("insertar.pelicula");
 		pta = conexion.prepareStatement(sql);
@@ -52,7 +59,10 @@ public class Pelicula_DAO extends DAO implements IPelicula_DAO {
 			return false;// el insert ha fallado
 		}
 	}
-
+	/**
+	 * Devuelve todos los registros de la tabla Pelicula en forma de ArrayList
+	 * @return un ArrayList con Objetos de tipo Pelicula
+	 */
 	@Override
 	public ArrayList<Pelicula> listarPelicula() throws SQLException {
 		ArrayList<Pelicula> lista = new ArrayList<Pelicula>();
