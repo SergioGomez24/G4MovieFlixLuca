@@ -1,7 +1,7 @@
 /**
  * Clase MovieFlix
  * 
- * Contiene la informacion de la parte de control de las peliculas
+ * Contiene la informacion de la capa de control de MovieFlix
  * 
  * Fecha: 10/02/2020
  * 
@@ -36,7 +36,8 @@ public class MovieFlix {
 
 	private IGestion_Peliculas servicioPeliculas;
 	private IGestion_Usuarios servicioUsuarios;
-
+	
+	
 	public void abrirMovieFlix() {
 		boolean seguir = true;
 

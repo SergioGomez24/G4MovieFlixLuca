@@ -1,7 +1,7 @@
 /**
  *Gestion_Usuario
  * 
- * Contiene la implementación de la gestión de los usuarios con el método altaPelicula.
+ * Contiene la implementación de la gestión de los usuarios.
  * 
  * Fecha: 10/02/2020
  * 

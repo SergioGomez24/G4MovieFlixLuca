@@ -2,7 +2,7 @@
 /**
  *Gestion_Peliculas
  * 
- * Contiene la implementación de la gestión de peliculas con el método altaPelicula.
+ * Contiene la implementación de la gestión de peliculas.
  * 
  * Fecha: 10/02/2020
  * 
