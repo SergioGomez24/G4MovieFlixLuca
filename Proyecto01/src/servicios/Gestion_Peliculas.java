@@ -20,7 +20,9 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import dao.IPelicula_DAO;
+import dao.IUsuario_DAO;
 import dao.Pelicula_DAO;
+import dao.Usuario_DAO;
 import gui.Vista;
 import modelo.Pelicula;
 import modelo.Usuario;
@@ -111,11 +113,23 @@ public class Gestion_Peliculas implements IGestion_Peliculas {
 		ArrayList<Pelicula> lista = null;
 
 		try {
-			lista = peliDao.listarPeliculasPorUsuarios(nick);
+			IUsuario_DAO usuarioDao = new Usuario_DAO();
+			Usuario u = null;
+			u = usuarioDao.buscarPorNick(nick);
+			if(u != null) {
+				lista = peliDao.listarPeliculasPorUsuarios(nick);
+			} else {
+				throw new Exception("El usuario no existe");
+				
+			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} finally {
+		} 
+		catch(Exception e) {
+			logger.info("Error "+ e.getMessage());
+		}
+		finally {
 			try {
 				peliDao.liberarRecursos();
 			} catch (SQLException e) {
