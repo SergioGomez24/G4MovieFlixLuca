@@ -68,7 +68,9 @@ public class Usuario {
 				+ "| residencia: " + residencia_Usuario + "]";
 	}
 
-	// Método para crear un usuario
+	/**
+	 *  Método para crear un usuario
+	 */
 	public void crearUsuario() {
 
 		System.out.println("CREAR USUARIO:");
@@ -90,7 +92,10 @@ public class Usuario {
 
 	}
 
-	// Metodo para buscar el nick
+	/**
+	 *  Metodo para buscar el nick
+	 * @return
+	 */
 	public static String pedirNick() {
 		String nick = null;
 
@@ -99,7 +104,9 @@ public class Usuario {
 		return nick;
 	}
 
-	// Metodo para modificar el Usuario
+	/**
+	 *  Metodo para modificar el Usuario
+	 */
 	public void modUsuario() {
 
 		System.out.println("MODIFICAR USUARIO");

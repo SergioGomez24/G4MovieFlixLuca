@@ -58,7 +58,9 @@ public class Pelicula {
 	public void setCategoria_pelicula(int categoria_pelicula) {
 		this.categoria_pelicula = categoria_pelicula;
 	}
-	
+	/**
+	 * Método para dar valores a una película
+	 */
 	public void crearPelicula() {
 		
 		System.out.println("CREAR PELICULA:");
@@ -70,7 +72,10 @@ public class Pelicula {
             e.getStackTrace();
 		}
 	}
-	
+	/**
+	 * Método para pedir y recibir categoría por teclado
+	 * @return
+	 */
 	public static int pedirCategoria() {
 		int num = LeerTeclado.leerInt("Introduce una categoria");
 		
