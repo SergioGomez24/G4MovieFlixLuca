@@ -1,3 +1,15 @@
+/**
+ * Clase Categoria
+ * 
+ * Contiene información de la Categoria
+ * 
+ * Fecha: 12/02/2020
+ * 
+ * @author Sergio Gómez Benítez
+ * @version 1.0
+ *
+ */
+
 package modelo;
 
 public class Categoria {

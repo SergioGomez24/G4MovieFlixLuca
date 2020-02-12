@@ -7,6 +7,7 @@ import java.util.HashMap;
 import modelo.Categoria;
 
 public class Categoria_DAO extends DAO {
+	
 	public Categoria_DAO() {
 		super();
 	}
